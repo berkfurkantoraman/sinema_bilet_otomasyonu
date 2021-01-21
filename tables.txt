@@ -1,0 +1,512 @@
+--------------------------------------------------------
+--  File created - Perþembe-Ocak-21-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table BILETLER
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."BILETLER" 
+   (	"BILET_ID" NUMBER(*,0), 
+	"SALON_NO" NUMBER, 
+	"AD_SOYAD" VARCHAR2(50 BYTE), 
+	"SEANS" VARCHAR2(20 BYTE), 
+	"TARIH" VARCHAR2(20 BYTE), 
+	"KOLTUK_NO" VARCHAR2(100 BYTE), 
+	"FILM_ID" NUMBER
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table FILMLER
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."FILMLER" 
+   (	"FILM_ID" NUMBER(*,0), 
+	"FILM_ISIM" VARCHAR2(50 BYTE), 
+	"KATEGORI" VARCHAR2(150 BYTE), 
+	"ETIKET" VARCHAR2(20 BYTE), 
+	"GFORMAT" VARCHAR2(5 BYTE), 
+	"DIL" VARCHAR2(20 BYTE), 
+	"OZET" VARCHAR2(999 BYTE), 
+	"IMDB" VARCHAR2(10 BYTE), 
+	"AFIS" VARCHAR2(200 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table KATEGORILER
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."KATEGORILER" 
+   (	"KATEGORI_ISMI" VARCHAR2(30 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table KULLANICILAR
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."KULLANICILAR" 
+   (	"KULLANICI_ADI" VARCHAR2(20 BYTE), 
+	"SIFRE" VARCHAR2(20 BYTE), 
+	"KULLANICI_TIPI" VARCHAR2(20 BYTE), 
+	"AD_SOYAD" VARCHAR2(20 BYTE), 
+	"E_MAIL" VARCHAR2(30 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table REZERVE_KOLTUK
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."REZERVE_KOLTUK" 
+   (	"KOLTUK_NO" VARCHAR2(20 BYTE), 
+	"SALON_NO" NUMBER, 
+	"SEANS" VARCHAR2(20 BYTE), 
+	"TARIH" VARCHAR2(20 BYTE), 
+	"BILET_ID" NUMBER
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table SALON_ICERIK
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."SALON_ICERIK" 
+   (	"SALON_NO" NUMBER, 
+	"FILM_ID" NUMBER, 
+	"SEANS" VARCHAR2(20 BYTE), 
+	"TARIH" VARCHAR2(20 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table SALONLAR
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."SALONLAR" 
+   (	"SALON_NO" NUMBER(*,0), 
+	"KAPASITE" VARCHAR2(20 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table YIYECEK_MENU
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."YIYECEK_MENU" 
+   (	"URUN_ID" NUMBER(*,0), 
+	"URUN_ADI" VARCHAR2(30 BYTE), 
+	"URUN_FIYATI" VARCHAR2(20 BYTE), 
+	"URUN_TYPE" VARCHAR2(20 BYTE), 
+	"URUN_RESIM" VARCHAR2(300 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SYSTEM.BILETLER
+SET DEFINE OFF;
+Insert into SYSTEM.BILETLER (BILET_ID,SALON_NO,AD_SOYAD,SEANS,TARIH,KOLTUK_NO,FILM_ID) values ('4','20','tugba_þovcu','15:00','20.08.2021','42,43','28');
+Insert into SYSTEM.BILETLER (BILET_ID,SALON_NO,AD_SOYAD,SEANS,TARIH,KOLTUK_NO,FILM_ID) values ('2','1','Sude_gngr','21:00','20.05.2021','57,58,59,60','42');
+Insert into SYSTEM.BILETLER (BILET_ID,SALON_NO,AD_SOYAD,SEANS,TARIH,KOLTUK_NO,FILM_ID) values ('5','1','Sude_gngr','21:00','20.05.2021','55,61,70','42');
+REM INSERTING into SYSTEM.FILMLER
+SET DEFINE OFF;
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('44','Crack','Suç','Yakýnda','2D','ALTYAZILI',' Crack Cocaine Corruption and Conspiracy 2021. 1980''lerin baþýnda, uyuþturucu salgýný Amerika''nýn iç þehirlerini bir tsunami gibi parçalar ve ardýndan her þeyi kasýp kavurmaya baþlayacaktýr... ',' 6.8','C:\Users\MONSTER\Desktop\film_afisler\medium-cover.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('26','Issýz Adam','Romantik Dram','Yakýnda','2D','ORÝJÝNAL','Alper, gurme denilecek seviyede yemek kültürü olan kendi restoranýnýn sahibi bir aþçýdýr. Lüks yaþamayý seven, iþinde baþarýlý ama özel yaþantýsýný her gün farklý kadýnlarla geçirerek düzene koyamamýþ, yaþamýný; yaptýðý yemekler, zengin kadýnlar çevresinde yaþayan birisidir.
+
+Ada, taksim''de çocuk kostümleri tasarlayýp dikmekte olan, Alper’in modern hayatýnýn aksine çok mütevazý, hayatta fazla iniþleri çýkýþlarý olmayan genç bir kýzdýr. Bir gün eski bir kitabý bulabilmek için Beyoðlu’nda dolaþýrken Alper ile Ada ayný kitapçýya girerler ve aþk ile çeliþkili yaþam onlar için baþlamýþ olur.','8.7','C:\Users\MONSTER\Desktop\film_afisler\7040060102f94198d438776944f9fd16.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('27','Baba Parasý','Komedi','Yakýnda','2D','ORÝJÝNAL','Ülkenin en zengin insanýnýn gayri meþru çocuklarý, babalarýnýn ölümü üzerine büyük bir servete konar. Birbirinden farklý karaktere, kültüre, yaþam tarzýna sahip olan kardeþler, kendilerine düþen payý almak için harekete geçtiklerinde beklenmedik bir durumla karþý karþýya kalýr. Kardeþler, yasal varis olmalarýna raðmen, mirasýn tamamýna sadece biri sahip olabilecektir; en kötü olaný. Babalarýnýn mirasýnýn bulunduðu kasanýn þifresini bulan, tüm mirasýn sahibý olacaktýr. Þifre ancak ölen milyarder gibi aç gözlü, düzenbaz, acýmasýz, zeki ve uçarý biri tarafýndan bulunabilecektir. Kasayý açmak için büyük bir yarýþa giriþen kardeþler, bu süreçte kendilerini beklenmedik durumlarýn içinde bulur.','5.5','C:\Users\MONSTER\Desktop\film_afisler\5e3f442a5542831728000cd1.jfif');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('28','Aslan Kral','Aksiyon','Vizyonda','2D','TÜRKÇE DUBLAJ','Aslan Kral, yavru bir aslan olan Simba’nýn maceralarýný konu ediyor. Ormanýn kralý olan babasý Mufasa''ya hayran bir yavru aslan olarak mutlu bir hayat süren Simba, sinsi amcasý Scar''ýn planlarýndan habersizdir. Kral olmak için fýrsat kollayan Scar, Mufasa''yý öldürdükten sonra Simba için tehlike baþ gösterir. Amcasýnýn ihaneti ve babasýnýn kaybý ile yýkýlan Simba sürgüne gider. Zamaný geldiðinde hakký olaný almak için geri dönecek ve amcasýna yaptýklarýnýn bedelini ödetecektir...','7.2','C:\Users\MONSTER\Desktop\film_afisler\6887C931-28AA-E911-80EF-A0369F7D1486.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('29','Bayi Toplantýsý','Komedi','Vizyonda','2D','ORÝJÝNAL','Bayi Toplantýsý, mecburen katýldýklarý bayi toplantýsýnda kendilerini birbirinden eðlenceli maceralarýn içinde bulan üç beyaz eþya satýcýsýnýn hikayesini konu ediyor. Namýk, Adem ve Sadýk, geçimlerini efnaflýk yaparak saðlayan üç adamdýr. Birbirlerini tanýmayan bu üç adamýn yolu katýldýklarý bayi toplantýsýnda kesiþir. Hayatlarýnýn zor bir döneminden geçen Namýk, Adem ve Sadýk, baþlarýna gelen olaylar sonrasýnda kendilerini macera dolu bir planýn içinde bulur. Bayilerini kurtarmaya çalýþan ekibin bu süreçte birbirine güvenmekten ve hýzlý etmekten baþka çaresi yoktur.','6.2','C:\Users\MONSTER\Desktop\film_afisler\20200707144247_.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('30','Ýkinci Þans','Romantik Dram','Yakýnda','2D','ORÝJÝNAL','Matematik öðretmeni olan çok gu?zel bir kadýn Yasemin ile et restoraný sahibi karizmatik gurme Cemal''in yollarý kesiþir. Yasemin geçmiþte yaþadýðý yanlýþ evililiðin yaralarýný sarmaya çalýþan, attýðý adýmlara dikkat eden bir annedir. Cemal ise sosyal, geçmiþinden kurtulmak isteyen gamsýz bir adamdýr. Bu zýt karakterli ikilinin tanýþmasý önce kavgalý olacaksa da zamanla hüzünlü bir aþka dönüþecektir. Geçmiþlerinin derinlerine indiklerinde ikisinin de ikinci bir þansa ihtiyacý olduðu ortaya çýkar.
+Baþrollerinde Nurgül Yeþilçay ve Özcan Deniz''in yer aldýðý filmin senaristliðini ve yönetmenliðini de Özcan Deniz üstleniyor. ','6.9','C:\Users\MONSTER\Desktop\film_afisler\b31d3080f4ac886ebe577f19da861683.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('31','Youth','Romantik Komedi','Yakýnda','2D','ALTYAZILI','Roma’ya adanmýþ bir aþk mektubu olan Muhteþem Güzellik’in ardýna gelen Gençlik, hayatýn kendisine bir aþk mektubu niteliði taþýyor. Onu ironik bir küçümsemeyle hafife alýrken içten içe yüceltiyor, onu ne kadar önemsediðini finale doðru iyice açýk ediyor. Hayat sadece yaþanmýþlýklardan oluþmuyor, yaþanamamýþ olanlar da onun bir parçasýný oluþturuyor.','7.3','C:\Users\MONSTER\Desktop\film_afisler\youth afiþ.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('32','La Belva','Aksiyon','Yakýnda','3D','ORÝJÝNAL','Leonida Riva, bir zamanlar Ordu''nun özel kuvvetlerinin kaptaný olan kasvetli, yalnýz bir savaþ gazisidir. Hayat ve iþ Riva''yý ailesinden uzaklaþtýrdý. En büyük oðlu Mattia, kýzý Teresa onu kayýtsýz þartsýz severken onu asla affetmedi. Ancak trajik bir olay, Leonida''yý geçmiþte uzun süredir gömdüðünü düþündüðü bir þeye dönüþmeye zorlayacaktýr.','5.2','C:\Users\MONSTER\Desktop\film_afisler\locandina.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('33','Tenet','Aksiyon','Yakýnda','2D','TÜRKÇE DUBLAJ','Tenet, dünyayý büyük bir tehlikeden kurtarmak için savaþan bir kahramanýn hikayesini konu ediyor. Gerçek zamanýn ötesinde bir yerde uluslararasý bir casusluk görevini yerine getirmeye çalýþan kahraman, dünyayý kurtarabilmek için savaþmak zorunda kalýr. Üçüncü Dünya Savaþý’ndan daha büyük bir tehlikeyi durdurmaya çalýþan kahraman, casusun alacakaranlýk dünyasýnda zorlu bir yolculuða çýkar.','7.3','C:\Users\MONSTER\Desktop\film_afisler\fullhd-tenet.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('40','Sibel','Dram','Yakýnda','3D','ORÝJÝNAL','Sibel, köylüler tarafýndan dýþlanan dilsiz bir genç kýzýn hikayesini anlatýyor. 25 yaþýndaki Sibel, babasý ve kýz kardeþi ile birlikte Karadeniz’de gözlerden uzak bir köyde yaþamaktadýr. Dilsiz bir kýz olan Sibel’in kendi halinde bir yaþantýsý vardýr. O, ancak atalarýndan kalma bir gelenek olan ýslýk çalma sayesinde çevresindekilerle iletiþim kurabilmektedir. Köy halký tarafýndan dýþlanan genç kýz, onlar taradýndan uðursuz olarak kabul edilmektedir. Sibel''in hayatý, bir gün ormanda gezintiye çýktýðý sýrada bir yabancý ile karþýlaþmasý ile bambaþka bir hal alýr. ','5.7','C:\Users\MONSTER\Desktop\film_afisler\0249067.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('35','Mulan','Aksiyon','Vizyonda','2D','ALTYAZILI','Ünlü film yapýmcýsý Niki Caro, korkusuz bir genç kadýnýn ailesine olan sevgisi ve vataný uðruna Çin''in gördüðü en büyük savaþçýlardan biri olmak için her þeyini riske attýðý MULAN''da, Çin''in efsanevi savaþçýsýnýn destansý hikayesini hayata geçiriyor. Çin Ýmparatoru, her aileden bir erkeðin ülkeyi Kuzeyli iþgalcilerden korumak üzere orduya katýlmasýna karar verince, onurlu bir savaþçýnýn en büyük kýzý olan Hua Mulan hasta babasýnýn yerini almak için kendini ortaya atýyor. Bir erkek kýlýðýnda, Hua Jun olarak, yolun her adýmýnda test ediliyor; iç gücünü kullanmasý ve gerçek potansiyelini kucaklamasý gerekiyor. Bu onu onurlu bir savaþçýya dönüþtürecek, ona bir ulusun minnetini ve gururlu bir babanýn saygýsýný kazandýracak destansý bir yolculuk.','6.5','C:\Users\MONSTER\Desktop\film_afisler\mulan.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('36','TOGO','Macera','Yakýnda','3D','ALTYAZILI','ogo, kasabayý etkisi altýna alan salgýnýn tedavi edilmesi için zorlu bir yolculuða çýkan bir adam ve köpeðin hikayesini konu ediyor. Ölümcül bir salgýn Alaska’nýn Nome kasabasýný etkisi altýna almýþtýr. Tek tedavi imkaný 600 mil ötedeki kasabadadýr. Kasabada bulunan antitoksin serumun getirilmesi gerekir ancak bu pek de kolay bir iþ deðildir. Kasaba halký, serumun getirilebilmesi için köpek eðitmeni olan Leonhard Seppala’dan yardým ister. Yardým etmeyi kabul eden Leonhard Seppala, cýlýz görünümlü, yaþlý bir Sibirya kurdu olan Togo ile birlikte yola koyulur. Togo''yu yavru olduðu dönemden beri tanýyan Seppala''nýn eþi Constance, Togo’nun her koþulda cesaret ve sadakat göstereceðinden emindir. Serumun bulunduðu kasabaya adým adým yaklaþan Seppala ve Togo, yolculuk sýrasýna korkunç bir fýrtýnayla karþý karþýya kalýr. -70 dereceye varan soðukta Togo ve Seppala büyük bir yaþam mücadelesi verecektir.','8.2','C:\Users\MONSTER\Desktop\film_afisler\togo-izle-68837954.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('37','Old Guard','Aksiyon','Vizyonda','2D','ORÝJÝNAL','he Old Guard, yýllardýr paralý asker olarak çalýþan bir grup ölümsüz askere odaklanýyor. Thebae Campus''ýn prensesi Eetion’un kýzý olan Andromecha ve ona eþlik eden diðer Yunan mitolojisinden çýkýp gelen insanlar, 21. yüzyýlda, paralý asker olarak çalýþýyorlardýr. Ölümsüzlükleriyle yaþamak zorunda kalan paralý askerler, baþka bir ölümsüzün varlýðýný keþfederler. Bu kiþi ise denizcilere hizmet veren siyahi bir kadýndýr. Peþlerine düþen kötü niyetli bir topluluk ise onlarýn varlýklarýný keþfetmiþlerdir. Ölümsüzler anlayacaklardýr ki, ölümden çok daha kötü þeyler vardýr...','7.8','C:\Users\MONSTER\Desktop\film_afisler\the-old-guard.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('38','Parazit','Gerilim','Vizyonda','2D','ALTYAZILI','Park Ailesi''yle tanýþýn: soyla gelen servetin klasik bir tablosu. Diðer yanda ise Kim Ailesi, sokak zekasý bakýmýndan zengin ama baþka hiçbir zenginliðe sahip deðil. Þans veya kader olsun, bu iki ev halký bir þekilde bir araya gelir ve Kim ailesi altýn bir fýrsatýn varlýðýný hemen sezer. Kolej çaðýndaki Ki-woo tarafýndan manipülasyon konusunda yetiþtirilen Kim çocuklarý, öðretmen ve sanat terapisti görevleriyle kendilerini Park ailesinin arasýna çabucak yerleþtirir. Kim''ler “vazgeçilmez” lüks hizmetler sunarken, Parklar ise habersizce evlerindeki her þeyi Kim ailesine kaybetmektedir. Ancak kýsa sürede bu düzen bir tehditle karþýlaþýr. Asalak bir misafir Kim ailesinin yeni keþfettikleri konforu tehdit eder hale geldiðinde, vahþi ve zorlayýcý bir üstünlük mücadelesi patlak verir. Bu mücadele Kim ve Park aileleri arasýndaki kýrýlgan ekosistemi yýkmakla tehdit etmektedir...','8.4','C:\Users\MONSTER\Desktop\film_afisler\parazit.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('41','Maymunlar Cehennemi','Bilim Kurgu','Vizyonda','3D','TÜRKÇE DUBLAJ','Maymunlar Cehennemi: Þafak Vakti''nde Kobo''nun ihanetine uðrayarak, ýrkýndan büyük kayýplar veren Sezar, insanlýðýn onlarý affetmeyeceðini bilerek savaþa hazýrlanýyordu. 3 yýl sonra gelen devam filmi Maymunlar Cehennemi: Savaþ, bizi bir önceki filmi býraktýðýmýz yerden alýyor ve savaþýn ortasýna götürüyor. Sezar her ne kadar savaþmak istemeyip, barýþý seçse de, insanlýk adýna savaþan Albay, acýmasýzlýðý ile nam salýyor ve maymunlarýn kökünü kazýmak için her türlü yolu deniyor. Ancak Sezar''ýn da Albay karþýsýnda boyun eðmeye niyeti yok. Þimdi iki ýrkýn da geleceðinin kaderi bu yüzleþmeye baðlýdýr... ','7.6','C:\Users\MONSTER\Desktop\film_afisler\353534.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('42','Feride','Komedi','Yakýnda','2D','ORÝJÝNAL','Feride, moda devlerine kafa tutan genç bir kadýnýn hikayesini konu ediyor. Genç bir kadýn olan Feride, yer altýndaki bir dikim atölyesinde terzilik yapmaktadýr. Çakma kahraman kýyafetleri diken Feride’nin hayatý, bir gün patronu ile iddiaya girmesi ile bambaþka bir hal alýr. Patronu Çetin’e baþ kaldýran ve bunun sonucu patronu ile büyük bir iddiaya giren Feride, kendisini bir anda moda devlerine kafa tutan eðlenceli bir yolculuðun içinde bulur.','4.4','C:\Users\MONSTER\Desktop\film_afisler\5872106.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('43','Aðýr Romantik','Romantik Komedi','Vizyonda','2D','ORÝJÝNAL','Sanatla ilgili bir annenin ve profesör bir babanýn kýzý olan Aslý, konservatuvarda okumaktadýr. Aslý''nýn hayatý, bir gün Beyoðlu''nda yürürken bir kapkaççýnýn çantasýný çalmasý ile bambaþka bir hal alýr. Yaþadýðý olay sonrasý büyük bir korkuya kapýlan Aslý''ya, bu sýrada olaya þahit olan Kerem adýnda bir adam yardým eder ve çantayý bularak Aslý''ya teslim eder. Bu tatsýz olay sayesinde tanýþan Aslý ve Kerem, görüþmeye devam ederek çok geçmeden güzel bir iliþkiye baþlar. Ancak Kerem, ayrý dünyalara sahip olduðu sevgilisine kendisini bambaþka biri olarak tanýtýr. Finans uzmaný olarak kendisini tanýtan Kerem, babasýnýn Ýstanbul''un en büyük kapkaç çetesinin baþý olduðu gerçeðini de gizler.','4.3','C:\Users\MONSTER\Desktop\film_afisler\Nk_O7sdNWE-nq1_ixDC7Xg.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('45','Butchers','Korku','Yakýnda','2D','ALTYAZILI',' Sadist kasaplardan oluþan bir aile, hem yazýn hemde kýþýn yaþadýklarý bir kasabada karþýlarýna çýkan her insaný öldürmektedirler.',' 6.1','C:\Users\MONSTER\Desktop\film_afisler\ButchersDVD.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('46','The Room','Bilim Kurgu','Vizyonda','2D','ORÝJÝNAL',' Yeni evlerine taþýnan bir çift, içine girdiklerinde istedikleri her þeyi yapabileceklerini fark ettikleri bir odayý keþfederler ve bu çiftin hayatlarýndaki en büyük sorun çocuk sahibi olamamaktýr. Odaya girdiklerinde çocuk sahibi olmayý dileyen çiftin bu dileði ciddi sonuçlara neden olacaktýr...',' 6.0','C:\Users\MONSTER\Desktop\film_afisler\unnamed.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('47','Umbrella','Animasyon','Yakýnda','3D','TÜRKÇE DUBLAJ',' Gerçek olaylardan ilham alan bu film, küçük bir kýzýn, çocuklar için bir evi ziyaret ettiði sýrada, tek hayali sarý þemsiyeye sahip olmak olan Joseph ile tanýþmasýný ve bu beklenmedik karþýlaþmanýn geçmiþe dair anýlarýný uyandýrmasýný konu ediniyor...',' 8.1','C:\Users\MONSTER\Desktop\film_afisler\MV5BMTUyMjAxMjctMzk1NS00NTdiLWJjZmQtNjI2MWQyNGYyYmE5XkEyXkFqcGdeQXVyMjY1NjIwODA@._V1_.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('48','Scoob!','Animasyon','Vizyonda','2D','TÜRKÇE DUBLAJ',' Scoob!, Mystery Inc., Shaggy ve Scooby Doo dahil. Dünyayý Dick Dastardly''den ve kötü planlarýndan kurtarmak için, Hanna Barbera evreninin diðer kahramanlarýyla birleþen çetesi hakkýnda konu alýyor.',' 5.3','C:\Users\MONSTER\Desktop\film_afisler\5490004.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('49','After 2','Romantik','Yakýnda','2D','ALTYAZILI',' Hardin ile hayal kýrýklýðýna uðramýþ olan Tessa, hala ondan uzak durmamaktadýr. Hardin''i kafasýndan çýkaramasa da, yapacaðý hatayý daha fazla kabul edemediði için derslerine devam etmeye ve çalýþmaya çalýþýr. Bu sýrada Tessa''nýn meslektaþý Trevor genç kadýna yakýndan bakar. Tessa bu ilgiden çok memnun. Tessa yý kaybettiðine inanan Hardin, kurtuluþun ancak kirli geçmiþi ve travmasý sayesinde saðlanabileceðine inanýyor ve Tessa''yý geri almak için çabalýyor. Tüm yanlýþ anlamalarýna ve zorluklarýna raðmen Tessa, Hardin''e olan ilgisini inkar edemez. ','5.8','C:\Users\MONSTER\Desktop\film_afisler\546x840.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('53',' Uzay Yolcularý','Bilim Kurgu','Vizyonda','3D','ORÝJÝNAL','  Baþrollerinde Oscar ödüllü oyuncu Jennifer Lawrence ve Galaksinin Koruyucularý''ndaki Starlord''u canlandýran Chris Pratt''ýn yer aldýðý filmde Fishburne''ün rolü henüz bilinmiyor.Yönetmenliðini Enigma filmi ile beðeni toplayan Morten Tyldum üstlendiði yapýmýn senaryosu ile Doctor Strange''in senaryosunu kaleme alan Jon Spaihts''e emanet. Pratt''in ilaç ayarlý uykusundan erken uyanan bir uzay yolcusu olan tamirci Jim Preston''ý canlandýrdýðý yapýmda, Lawrence ise Pratt''in karakteri tarafýndan yalnýz kalmamak için uyandýrýlan bir diðer yolcu olan New Yorklu yazar Aurora''yý canlandýracak. Ýkili bu süreçte birbirlerine aþýk olsalar da Preston''ýn Aurora''nýn 100 yýl erken uyandýrmýþ olmasýnýn sebebi olduðunun ortaya çýkmasý ve gemideki büyük bir teknik arýza ikisi arasýndaki gerilimin yükselmesine sebep olacak.',' 7','C:\Users\MONSTER\Desktop\film_afisler\tumblr_1c8dfe9d1f9cd2b5ff16d74f31105e7c_ad327432_1280.jpg');
+Insert into SYSTEM.FILMLER (FILM_ID,FILM_ISIM,KATEGORI,ETIKET,GFORMAT,DIL,OZET,IMDB,AFIS) values ('52',' Kelebekler','kategori','Vizyonda','2D','ORÝJÝNAL',' Üç kardeþin yollarý yýllar önce ayrýlmýþtýr. Aradan geçen 30 yýlýn ardýndan babalarý çocuklarýný bir araya getirmek ister ve onlarý Hasanlar Köyü’ndeki evlerine geri çaðýrýr. Kardeþlerden en büyüðü Cemal, onlarý alýr ve nedenini bilmedikleri bir yolculuða çýkar. Üç kardeþ köye gittiklerinde ise babalarýnýn öldüðünü öðrenirler. Babalarý, köyün acayipliklerinden biri olan kelebeklerin geliþinde gömülmeyi vasiyet etmiþtir. Birbirlerini çok az tanýyan kardeþler köyde kaldýklarý süre boyunca yaþadýklarý olaylarla kendilerini, birbirlerini ve babalarýnýn kim olduðunu anlamaya çalýþýr.
+"Sarmaþýk"ýn ödüllü yönetmeni Tolga Karaçelik’in yönetmenliðini üstlendiði “Kelebekler” filminin oyuncu kadrosunda Bartu Küçükçaðlayan, Tuðçe Altuð, Tolga Tekin, Serkan Keskin, Hakan Karsak, Ezgi Mola, Ercan Kesal gibi oyuncular rol alýyor.',' 7.7','C:\Users\MONSTER\Desktop\film_afisler\4563094.jpg');
+REM INSERTING into SYSTEM.KATEGORILER
+SET DEFINE OFF;
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Aksiyon');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Animasyon');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Bilim Kurgu');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Biyografi');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Dram');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Gerilim');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Kategori');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Komedi');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Korku');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Macera');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Polisiye');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Romantik');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Romantik Dram');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Romantik Komedi');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Savaþ');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Suç');
+Insert into SYSTEM.KATEGORILER (KATEGORI_ISMI) values ('Çizgi Film');
+REM INSERTING into SYSTEM.KULLANICILAR
+SET DEFINE OFF;
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Berk','123','Admin','Berk','berkfurkantoraman@gmail.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('pelin_asi','123456','Üye','Pelin Su','pelin_su@icloud.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('11','11','Admin','1111','11@icloud.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Boralettin','123','Admin','Bora','boralettinn@yahoo.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Buse','11','Üye','Buse','buse@yandex.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Berk Furkan TORAMAN','123berko','Admin','BFT','bft@hotmail.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('kullanýcý_çocuk','123','Üye','Anonim','kullanýcý_cocuk@yandex.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Sude_gngr','123','Üye','Sude Güngör','sd_gnr@gazi.edu.tr');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('Ahmet','123','Üye','Ahmet','ahmet@gmail.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('1234','123','Üye','Mahmut','mahmut@yandex.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('tugba_þovcu','123','Üye','Tuðba Aydýn','ccc@gazi.edu.tr');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('tuncer_lo_mahmut','halaymendili','Üye','Mahmut Tuncer','façalý_yaralý@yandex.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('1','1','Üye','Bir Numara','birnumara@yandex.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('yiðit_yksl','1232','Üye','Yiðit Yüksel','ygtt07@bing.com');
+Insert into SYSTEM.KULLANICILAR (KULLANICI_ADI,SIFRE,KULLANICI_TIPI,AD_SOYAD,E_MAIL) values ('L1qX_BFT','bft','Üye','Berk Furkan TORAMAN','L1qX@hotmail.com');
+REM INSERTING into SYSTEM.REZERVE_KOLTUK
+SET DEFINE OFF;
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('42','20','15:00','20.08.2021','4');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('57','1','21:00','20.05.2021','2');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('58','1','21:00','20.05.2021','2');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('43','20','15:00','20.08.2021','4');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('59','1','21:00','20.05.2021','2');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('55','1','21:00','20.05.2021','5');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('60','1','21:00','20.05.2021','2');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('61','1','21:00','20.05.2021','5');
+Insert into SYSTEM.REZERVE_KOLTUK (KOLTUK_NO,SALON_NO,SEANS,TARIH,BILET_ID) values ('70','1','21:00','20.05.2021','5');
+REM INSERTING into SYSTEM.SALON_ICERIK
+SET DEFINE OFF;
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('1','42','17:00','20.05.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('40','52','13:00','30.01.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('1','42','15:00','20.05.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('30','53','17:00','14.07.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('30','53','21:00','14.07.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('1','42','21:00','20.05.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('20','28','09:00','20.08.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('20','28','13:00','20.08.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('20','28','15:00','20.08.2021');
+Insert into SYSTEM.SALON_ICERIK (SALON_NO,FILM_ID,SEANS,TARIH) values ('20','28','17:00','20.08.2021');
+REM INSERTING into SYSTEM.SALONLAR
+SET DEFINE OFF;
+Insert into SYSTEM.SALONLAR (SALON_NO,KAPASITE) values ('30','62');
+Insert into SYSTEM.SALONLAR (SALON_NO,KAPASITE) values ('20','45');
+Insert into SYSTEM.SALONLAR (SALON_NO,KAPASITE) values ('1','90');
+Insert into SYSTEM.SALONLAR (SALON_NO,KAPASITE) values ('4','60');
+Insert into SYSTEM.SALONLAR (SALON_NO,KAPASITE) values ('40','80');
+REM INSERTING into SYSTEM.YIYECEK_MENU
+SET DEFINE OFF;
+Insert into SYSTEM.YIYECEK_MENU (URUN_ID,URUN_ADI,URUN_FIYATI,URUN_TYPE,URUN_RESIM) values ('3','Patlamýþ Mýsýr','11.40','Yiyecek','C:\Users\MONSTER\Desktop\yiyecek_resimler\siyah-cizgili-patlamis-misir-kutusu-2006.jpg');
+Insert into SYSTEM.YIYECEK_MENU (URUN_ID,URUN_ADI,URUN_FIYATI,URUN_TYPE,URUN_RESIM) values ('8','Kola','5.10','Ýçecek','C:\Users\MONSTER\Desktop\pngwing.com (1).png');
+Insert into SYSTEM.YIYECEK_MENU (URUN_ID,URUN_ADI,URUN_FIYATI,URUN_TYPE,URUN_RESIM) values ('7','Kombo','6.00','Yiyecek','C:\Users\MONSTER\Desktop\indir (1).jfif');
+Insert into SYSTEM.YIYECEK_MENU (URUN_ID,URUN_ADI,URUN_FIYATI,URUN_TYPE,URUN_RESIM) values ('5','Pamuk Þeker','9.00','Yiyecek','C:\Users\MONSTER\Desktop\yiyecek_resimler\indir (2).jfif');
+--------------------------------------------------------
+--  DDL for Index BILET_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."BILET_PK" ON "SYSTEM"."BILETLER" ("BILET_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index FÝLMLER_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."FÝLMLER_PK" ON "SYSTEM"."FILMLER" ("FILM_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index KATEGORILER_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."KATEGORILER_PK" ON "SYSTEM"."KATEGORILER" ("KATEGORI_ISMI") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index KULLANICILAR_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."KULLANICILAR_PK" ON "SYSTEM"."KULLANICILAR" ("KULLANICI_ADI") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SALONLAR_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."SALONLAR_PK" ON "SYSTEM"."SALONLAR" ("SALON_NO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index YIYECEK_MENU_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."YIYECEK_MENU_PK" ON "SYSTEM"."YIYECEK_MENU" ("URUN_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Trigger BILETID_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."BILETID_INS_TR" 
+    BEFORE INSERT ON BILETLER
+    FOR EACH ROW 
+BEGIN 
+    IF
+:NEW.BILET_ID = -1 THEN 
+    SELECT MAX (BILET_ID)+1
+    
+    INTO :new.BILET_ID
+    FROM BILETLER;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."BILETID_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger BILET_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."BILET_DEL_TR" 
+    BEFORE DELETE ON BILETLER
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM rezerve_koltuk WHERE 
+REZERVE_KOLTUK.BILET_ID = :old.BILET_ID;
+
+    END;
+/
+ALTER TRIGGER "SYSTEM"."BILET_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger FILM_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."FILM_DEL_TR" 
+    BEFORE DELETE ON FILMLER
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM SALON_ICERIK WHERE 
+SALON_ICERIK.FILM_ID = :old.FILM_ID;
+    END;
+/
+ALTER TRIGGER "SYSTEM"."FILM_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger FILMID_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."FILMID_INS_TR" 
+    BEFORE INSERT ON FILMLER
+    FOR EACH ROW 
+BEGIN 
+IF
+:NEW.FILM_ID = -1 THEN 
+    SELECT MAX (FILM_ID)+1
+    
+    INTO :new.FILM_ID
+    FROM FILMLER;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."FILMID_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger REZERVE_KOLTUK_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."REZERVE_KOLTUK_INS_TR" 
+    BEFORE INSERT ON REZERVE_KOLTUK
+    FOR EACH ROW 
+BEGIN 
+    SELECT MAX (BILETLER.BILET_ID)
+    
+    INTO :new.BILET_ID
+    FROM BILETLER;    
+END;
+/
+ALTER TRIGGER "SYSTEM"."REZERVE_KOLTUK_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger SALON_ICERIK_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."SALON_ICERIK_DEL_TR" 
+    BEFORE DELETE ON SALON_ICERIK
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM BILETLER WHERE 
+BILETLER.SALON_NO = :old.SALON_NO 
+AND BILETLER.SEANS= :old.SEANS 
+AND BILETLER.TARIH= :old.TARIH
+AND BILETLER.FILM_ID= :old.FILM_ID;
+
+    END;
+/
+ALTER TRIGGER "SYSTEM"."SALON_ICERIK_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger SALONLAR_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."SALONLAR_DEL_TR" 
+    BEFORE DELETE ON SALONLAR
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM SALON_ICERIK WHERE SALON_ICERIK.SALON_NO = :old.SALON_NO;
+    END;
+/
+ALTER TRIGGER "SYSTEM"."SALONLAR_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger YIYECEK_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."YIYECEK_INS_TR" 
+    BEFORE INSERT ON YIYECEK_MENU
+    FOR EACH ROW 
+BEGIN 
+IF
+:NEW.URUN_ID = -1 THEN 
+    SELECT MAX (URUN_ID)+1
+    
+    INTO :new.URUN_ID
+    FROM YIYECEK_MENU;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."YIYECEK_INS_TR" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BILETLER
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."BILETLER" MODIFY ("BILET_ID" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."BILETLER" ADD CONSTRAINT "BILET_PK" PRIMARY KEY ("BILET_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FILMLER
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."FILMLER" MODIFY ("FILM_ID" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."FILMLER" ADD CONSTRAINT "FÝLMLER_PK" PRIMARY KEY ("FILM_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table KATEGORILER
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."KATEGORILER" MODIFY ("KATEGORI_ISMI" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."KATEGORILER" ADD CONSTRAINT "KATEGORILER_PK" PRIMARY KEY ("KATEGORI_ISMI")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table KULLANICILAR
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."KULLANICILAR" MODIFY ("KULLANICI_ADI" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."KULLANICILAR" MODIFY ("SIFRE" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."KULLANICILAR" ADD CONSTRAINT "KULLANICILAR_PK" PRIMARY KEY ("KULLANICI_ADI")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table SALONLAR
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."SALONLAR" MODIFY ("SALON_NO" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."SALONLAR" ADD CONSTRAINT "SALONLAR_PK" PRIMARY KEY ("SALON_NO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table YIYECEK_MENU
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."YIYECEK_MENU" MODIFY ("URUN_ID" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."YIYECEK_MENU" ADD CONSTRAINT "YIYECEK_MENU_PK" PRIMARY KEY ("URUN_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table BILETLER
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."BILETLER" ADD CONSTRAINT "BILET_FILM_FK" FOREIGN KEY ("FILM_ID")
+	  REFERENCES "SYSTEM"."FILMLER" ("FILM_ID") ENABLE;
+  ALTER TABLE "SYSTEM"."BILETLER" ADD CONSTRAINT "BILET_SALONNO_FK" FOREIGN KEY ("SALON_NO")
+	  REFERENCES "SYSTEM"."SALONLAR" ("SALON_NO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table REZERVE_KOLTUK
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."REZERVE_KOLTUK" ADD CONSTRAINT "REZERVEKOLTUK_SALONNO_FK" FOREIGN KEY ("SALON_NO")
+	  REFERENCES "SYSTEM"."SALONLAR" ("SALON_NO") ENABLE;
+  ALTER TABLE "SYSTEM"."REZERVE_KOLTUK" ADD CONSTRAINT "REZERVE_KOLTUK_FK1" FOREIGN KEY ("BILET_ID")
+	  REFERENCES "SYSTEM"."BILETLER" ("BILET_ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table SALON_ICERIK
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."SALON_ICERIK" ADD CONSTRAINT "SALONICERIK_SALONNO_FK" FOREIGN KEY ("SALON_NO")
+	  REFERENCES "SYSTEM"."SALONLAR" ("SALON_NO") ENABLE;
+  ALTER TABLE "SYSTEM"."SALON_ICERIK" ADD CONSTRAINT "SALONICERIK_FILMID_FK" FOREIGN KEY ("FILM_ID")
+	  REFERENCES "SYSTEM"."FILMLER" ("FILM_ID") ENABLE;
