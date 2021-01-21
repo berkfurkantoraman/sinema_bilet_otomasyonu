@@ -1,0 +1,128 @@
+--------------------------------------------------------
+--  File created - Perþembe-Ocak-21-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Trigger BILET_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."BILET_DEL_TR" 
+    BEFORE DELETE ON BILETLER
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM rezerve_koltuk WHERE 
+REZERVE_KOLTUK.BILET_ID = :old.BILET_ID;
+
+    END;
+/
+ALTER TRIGGER "SYSTEM"."BILET_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger REZERVE_KOLTUK_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."REZERVE_KOLTUK_INS_TR" 
+    BEFORE INSERT ON REZERVE_KOLTUK
+    FOR EACH ROW 
+BEGIN 
+    SELECT MAX (BILETLER.BILET_ID)
+    
+    INTO :new.BILET_ID
+    FROM BILETLER;    
+END;
+/
+ALTER TRIGGER "SYSTEM"."REZERVE_KOLTUK_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger BILETID_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."BILETID_INS_TR" 
+    BEFORE INSERT ON BILETLER
+    FOR EACH ROW 
+BEGIN 
+    IF
+:NEW.BILET_ID = -1 THEN 
+    SELECT MAX (BILET_ID)+1
+    
+    INTO :new.BILET_ID
+    FROM BILETLER;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."BILETID_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger YIYECEK_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."YIYECEK_INS_TR" 
+    BEFORE INSERT ON YIYECEK_MENU
+    FOR EACH ROW 
+BEGIN 
+IF
+:NEW.URUN_ID = -1 THEN 
+    SELECT MAX (URUN_ID)+1
+    
+    INTO :new.URUN_ID
+    FROM YIYECEK_MENU;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."YIYECEK_INS_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger SALON_ICERIK_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."SALON_ICERIK_DEL_TR" 
+    BEFORE DELETE ON SALON_ICERIK
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM BILETLER WHERE 
+BILETLER.SALON_NO = :old.SALON_NO 
+AND BILETLER.SEANS= :old.SEANS 
+AND BILETLER.TARIH= :old.TARIH
+AND BILETLER.FILM_ID= :old.FILM_ID;
+
+    END;
+/
+ALTER TRIGGER "SYSTEM"."SALON_ICERIK_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger FILM_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."FILM_DEL_TR" 
+    BEFORE DELETE ON FILMLER
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM SALON_ICERIK WHERE 
+SALON_ICERIK.FILM_ID = :old.FILM_ID;
+    END;
+/
+ALTER TRIGGER "SYSTEM"."FILM_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger SALONLAR_DEL_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."SALONLAR_DEL_TR" 
+    BEFORE DELETE ON SALONLAR
+    FOR EACH ROW 
+BEGIN 
+DELETE FROM SALON_ICERIK WHERE SALON_ICERIK.SALON_NO = :old.SALON_NO;
+    END;
+/
+ALTER TRIGGER "SYSTEM"."SALONLAR_DEL_TR" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger FILMID_INS_TR
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "SYSTEM"."FILMID_INS_TR" 
+    BEFORE INSERT ON FILMLER
+    FOR EACH ROW 
+BEGIN 
+IF
+:NEW.FILM_ID = -1 THEN 
+    SELECT MAX (FILM_ID)+1
+    
+    INTO :new.FILM_ID
+    FROM FILMLER;
+    END IF;
+END;
+/
+ALTER TRIGGER "SYSTEM"."FILMID_INS_TR" ENABLE;
